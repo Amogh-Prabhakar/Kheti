@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      color: #177a3d;
+      padding: 20px;
+      background-color: #0d5c2c;
+      color: white;
+      margin: 0;
+    }
+    table {
+      width: 80%;
+      margin: 30px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #177a3d;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #d4edda;
+    }
+    button {
+      background-color: #0d5c2c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #14bb54;
+    }
+    /* Success Page Styles */
+    .success-container {
+      text-align: center;
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .hidden {
+      display: none;
+    }
+
+    /* Loading Screen Styles */
+    #loading {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading">
+    <p>Loading...</p>
+  </div>
+
+  <!-- Crop Prices Page -->
+  <div id="crop-prices-page">
+    <h1>Crop Prices</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Crop</th>
+          <th>Price per kg (₹)</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wheat</td>
+          <td>₹25</td>
+          <td><button onclick="addToCart('Wheat', 25)">Add to Cart</button></td>
+        </tr>
+        <tr>
+          <td>Rice</td>
+          <td>₹40</td>
+          <td><button onclick="addToCart('Rice', 40)">Add to Cart</button></td>
+        </tr>
+        <tr>
+          <td>Potatoes</td>
+          <td>₹20</td>
+          <td><button onclick="addToCart('Potatoes', 20)">Add to Cart</button></td>
+        </tr>
+        <tr>
+          <td>Tomatoes</td>
+          <td>₹30</td>
+          <td><button onclick="addToCart('Tomatoes', 30)">Add to Cart</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Cart Page -->
+  <div id="cart-page" class="hidden">
+    <h1>Your Cart</h1>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price per kg (₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Cart items will be dynamically inserted here -->
+      </tbody>
+    </table>
+    <div style="text-align: center; margin-top: 20px;">
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Success Page -->
+  <div id="success-page" class="hidden">
+    <div class="success-container">
+      <h1>Success!</h1>
+      <p>Your operation was completed successfully.</p>
+      <button onclick="goBack()">Go Back</button>
+    </div>
+  </div>
+
+  <script>
+    // Show loading screen
+    function showLoading() {
+      const loadingScreen = document.getElementById('loading');
+      loadingScreen.style.display = 'flex';
+    }
+
+    // Hide loading screen
+    function hideLoading() {
+      const loadingScreen = document.getElementById('loading');
+      loadingScreen.style.display = 'none';
+    }
+
+    // Add item to cart
+    function addToCart(item, price) {
+      showLoading();  // Show the loading screen
+
+      setTimeout(() => {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if the item is already in the cart
+        const existingItem = cart.find(cartItem => cartItem.item === item);
+        if (!existingItem) {
+          cart.push({ item, price });
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Show the cart page after a short delay
+        showCartPage();
+        hideLoading();
+      }, 1000);  // 1 second delay before showing the cart page
+    }
+
+    // Show the cart page
+    function showCartPage() {
+      const cropPricesPage = document.getElementById('crop-prices-page');
+      const cartPage = document.getElementById('cart-page');
+
+      cropPricesPage.classList.add('hidden');
+      cartPage.classList.remove('hidden');
+
+      // Load cart items
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartTable = document.getElementById('cart-table').getElementsByTagName('tbody')[0];
+
+      // Clear previous cart items
+      cartTable.innerHTML = '';
+
+      // Insert current cart items
+      cart.forEach(item => {
+        let row = cartTable.insertRow();
+        row.insertCell(0).innerText = item.item;
+        row.insertCell(1).innerText = item.price;
+      });
+    }
+
+    // Checkout function
+    function checkout() {
+      showLoading();  // Show the loading screen
+
+      setTimeout(() => {
+        // Simulate checkout processing
+        showSuccessPage();
+        hideLoading();
+      }, 3000);  // 3 seconds delay before showing the success page
+    }
+
+    // Show the success page
+    function showSuccessPage() {
+      const cartPage = document.getElementById('cart-page');
+      const successPage = document.getElementById('success-page');
+
+      cartPage.classList.add('hidden');
+      successPage.classList.remove('hidden');
+    }
+
+    // Go back to the previous page (either Cart or Crop Prices Page)
+    function goBack() {
+      const successPage = document.getElementById('success-page');
+      const cropPricesPage = document.getElementById('crop-prices-page');
+      const cartPage = document.getElementById('cart-page');
+
+      successPage.classList.add('hidden');
+      cropPricesPage.classList.remove('hidden');
+      localStorage.removeItem('cart');  // Clear the cart
+    }
+  </script>
+
+</body>
+</html>
