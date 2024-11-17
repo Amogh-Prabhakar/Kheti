@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="home.css">
+    <script src="main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers' Marketplace</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background-color: #14bb54;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #28a745;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #28a745;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="tel"]:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        .buyers-list {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .buyer {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .buyer:last-child {
+            border-bottom: none;
+        }
+
+        .buyer h4 {
+            margin: 0 0 5px;
+            font-size: 16px;
+            color: #28a745;
+        }
+
+        .buyer p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        /* Dark Overlay Styling */
+        #darkOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navbar Styling */
+       
+
+        /* Buttons */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #4caf50;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Results Section */
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f8e9;
+            border-radius: 5px;
+            display: none;
+        }
+        /* Navigation Bar */
+       
+       
+
+        /* Hero Section */
+        .hero {
+            background-image: url('KPB4DMQO_output_0.jpeg'); /* Add your image path */
+            background-size: cover; /* Ensure the image covers the entire section */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Enable parallax effect */
+            background-repeat: no-repeat; /* Prevent image from repeating */
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero h1 {
+                font-size: 60px;
+                margin: 0;
+            }
+
+            .hero p {
+                font-size: 20px;
+                margin: 10px 0;
+            }
+
+            .hero button {
+                margin-top: 20px;
+                background-color: #0984e3;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 50px; /* Fully rounded corners */
+                cursor: pointer;
+                font-size: 18px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+                .hero button:hover {
+                    background-color: #74b9ff;
+                    transform: scale(1.1); /* Slight zoom on hover */
+                }
+
+        /* Features Section */
+        .features {
+            background-color: #f5f5f5;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+            .features h2 {
+                margin-bottom: 40px;
+                font-size: 36px;
+                color: #2d3436;
+            }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 300px;
+            text-align: center;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .feature-card img {
+                height: 100px;
+                margin-bottom: 15px;
+            }
+
+            .feature-card h4 {
+                font-size: 22px;
+                margin: 10px 0;
+            }
+
+            .feature-card p {
+                font-size: 14px;
+                color: #636e72;
+            }
+
+        /* Interactive Section */
+        .interactive {
+            background: linear-gradient(135deg, #6a89cc, #b8e994);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+            .interactive h2 {
+                margin-bottom: 30px;
+            }
+
+            .interactive .carousel {
+                margin-top: 20px;
+            }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+            footer a {
+                color: #ecf0f1;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+
+                .navbar-inverse {
+            background-color: #1e272e;
+            border: none;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            color: #ffffff !important;
+        }
+
+        .navbar-nav li a {
+            color: #ffffff !important;
+        }
+
+            .navbar-nav li a:hover {
+                color: #a29bfe !important;
+            }
+    </style>
+</head>
+<body style="background-color: #d7f5d5">
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i class="fa fa-leaf"></i> Kheti</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#home" onclick="HI()"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#roi" onclick="CGA()"><i class="fa fa-line-chart"></i> Crop Growth Advisor</a></li>
+                    <li><a href="#weather" onclick="W()"><i class="fa fa-cloud"></i>Return</a></li>
+                    <li><a href="#supplies" onclick="SP()"><i class="fa fa-shopping-cart"></i> Supplies</a></li>
+                    <li><a href="#buyers" onclick="BY()"><i class="fa fa-handshake-o"></i> Buyers</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h2>Search for Buyers</h2>
+        <form id="searchForm">
+            <div class="form-group">
+                <label for="searchName">Name:</label>
+                <input type="text" id="searchName" placeholder="Search by name">
+            </div>
+            <div class="form-group">
+                <label for="searchPhone">Phone Number:</label>
+                <input type="tel" id="searchPhone" placeholder="Search by phone">
+            </div>
+            <div class="form-group">
+                <label for="searchVegetable">Vegetable:</label>
+                <input type="text" id="searchVegetable" placeholder="Search by vegetable">
+            </div>
+        </form>
+        <div class="buyers-list" id="buyersList"></div>
+    </div>
+
+    <script>
+        const buyers = [
+            { name: "Mohit Sharma", phone: "7897897898", age: 35, location: "Delhi", crop: "Carrots" },
+            { name: "Anjali Verma", phone: "8787878787", age: 28, location: "Mumbai", crop: "Tomatoes" },
+            { name: "Ravi Kumar", phone: "8989898989", age: 40, location: "Lucknow", crop: "Potatoes" },
+            { name: "Priya Singh", phone: "7676767676", age: 30, location: "Pune", crop: "Onions" },
+            { name: "Rahul Jain", phone: "6565656565", age: 45, location: "Chennai", crop: "Cabbages" },
+            { name: "Sneha Joshi", phone: "5454545454", age: 33, location: "Bangalore", crop: "Spinach" },
+            { name: "Aman Roy", phone: "4343434343", age: 27, location: "Patna", crop: "Cauliflower" },
+            { name: "Rohit Agarwal", phone: "3232323232", age: 29, location: "Ahmedabad", crop: "Peas" },
+            { name: "Nisha Yadav", phone: "2121212121", age: 34, location: "Jaipur", crop: "Eggplants" },
+            { name: "Arun Mehta", phone: "1010101010", age: 39, location: "Surat", crop: "Pumpkins" },
+            { name: "Kriti Bansal", phone: "1234567890", age: 26, location: "Indore", crop: "Corn" },
+            { name: "Manoj Desai", phone: "9876543210", age: 41, location: "Nagpur", crop: "Okra" },
+            { name: "Deepak Chawla", phone: "2345678901", age: 38, location: "Vadodara", crop: "Radishes" },
+            { name: "Geeta Pandey", phone: "3456789012", age: 29, location: "Kanpur", crop: "Beetroots" },
+            { name: "Suresh Rao", phone: "4567890123", age: 42, location: "Thane", crop: "Bell Peppers" },
+            { name: "Megha Tiwari", phone: "5678901234", age: 37, location: "Agra", crop: "Lettuce" },
+            { name: "Vikas Sharma", phone: "6789012345", age: 32, location: "Gwalior", crop: "Mushrooms" },
+            { name: "Pooja Mishra", phone: "7890123456", age: 29, location: "Bhopal", crop: "Chillies" },
+            { name: "Tarun Gupta", phone: "8901234567", age: 46, location: "Ranchi", crop: "Garlic" },
+            { name: "Swati Rana", phone: "9012345678", age: 36, location: "Amritsar", crop: "Ginger" },
+        ];
+
+        function filterBuyers() {
+            const name = document.getElementById("searchName").value.toLowerCase();
+            const phone = document.getElementById("searchPhone").value.toLowerCase();
+            const vegetable = document.getElementById("searchVegetable").value.toLowerCase();
+            const buyersList = document.getElementById("buyersList");
+
+            buyersList.innerHTML = "";
+
+            buyers.filter(buyer => {
+                return (
+                    (!name || buyer.name.toLowerCase().includes(name)) &&
+                    (!phone || buyer.phone.toLowerCase().includes(phone)) &&
+                    (!vegetable || buyer.crop.toLowerCase().includes(vegetable))
+                );
+            }).forEach(buyer => {
+                const buyerDiv = document.createElement("div");
+                buyerDiv.classList.add("buyer");
+                buyerDiv.innerHTML = `
+                    <h4>${buyer.name}</h4>
+                    <p>Phone: ${buyer.phone}</p>
+                    <p>Age: ${buyer.age}</p>
+                    <p>Location: ${buyer.location}</p>
+                    <p>Interested in: ${buyer.crop}</p>
+                `;
+                buyersList.appendChild(buyerDiv);
+            });
+        }
+
+        document.getElementById("searchName").addEventListener("input", filterBuyers);
+        document.getElementById("searchPhone").addEventListener("input", filterBuyers);
+        document.getElementById("searchVegetable").addEventListener("input", filterBuyers);
+
+        // Initial load
+        filterBuyers();
+    </script>
+</body>
+</html>

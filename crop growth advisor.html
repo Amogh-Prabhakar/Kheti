@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="main.js"></script>
+    <title>Crops Capability</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="home.css">
+    <script src="main.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        .navbar-inverse {
+            background-color: #1e272e;
+            border: none;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            color: #ffffff !important;
+        }
+
+        .navbar-nav li a {
+            color: #ffffff !important;
+        }
+
+            .navbar-nav li a:hover {
+                color: #a29bfe !important;
+            }
+        /* Hero Section */
+        .hero {
+            background-image: url('KPB4DMQO_output_0.jpeg'); /* Add your image path */
+            background-size: cover; /* Ensure the image covers the entire section */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Enable parallax effect */
+            background-repeat: no-repeat; /* Prevent image from repeating */
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero h1 {
+                font-size: 60px;
+                margin: 0;
+            }
+
+            .hero p {
+                font-size: 20px;
+                margin: 10px 0;
+            }
+
+            .hero button {
+                margin-top: 20px;
+                background-color: #0984e3;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 50px; /* Fully rounded corners */
+                cursor: pointer;
+                font-size: 18px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+                .hero button:hover {
+                    background-color: #74b9ff;
+                    transform: scale(1.1); /* Slight zoom on hover */
+                }
+
+        /* Features Section */
+        .features {
+            background-color: #f5f5f5;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+            .features h2 {
+                margin-bottom: 40px;
+                font-size: 36px;
+                color: #2d3436;
+            }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 300px;
+            text-align: center;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .feature-card img {
+                height: 100px;
+                margin-bottom: 15px;
+            }
+
+            .feature-card h4 {
+                font-size: 22px;
+                margin: 10px 0;
+            }
+
+            .feature-card p {
+                font-size: 14px;
+                color: #636e72;
+            }
+
+        /* Interactive Section */
+        .interactive {
+            background: linear-gradient(135deg, #6a89cc, #b8e994);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+            .interactive h2 {
+                margin-bottom: 30px;
+            }
+
+            .interactive .carousel {
+                margin-top: 20px;
+            }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+            footer a {
+                color: #ecf0f1;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styling */
+        body {
+            background-color: #e8f5e9;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Dark Overlay Styling */
+        #darkOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #4caf50;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Results Section */
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f8e9;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Overlay -->
+    <div id="darkOverlay">
+        Analyzing...
+    </div>
+
+    <body style="background-color: #d7f5d5">
+    
+        <!-- Navigation Bar -->
+        <nav class="navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><i class="fa fa-leaf"></i> Kheti(Farmers)</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#home" onclick="HI()"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="#roi" onclick="CGA()"><i class="fa fa-line-chart"></i> Crop Growth Advisor</a></li>
+                        <li><a href="#weather" onclick="W()"><i class="fa fa-cloud"></i>Return</a></li>
+                        <li><a href="#supplies" onclick="SP()"><i class="fa fa-shopping-cart"></i> Supplies</a></li>
+                        <li><a href="#buyers" onclick="BY()"><i class="fa fa-handshake-o"></i> Buyers</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <div class="container">
+        <h1>Crop Growth Advisor</h1>
+        <h3>Enter the crop you want to grow:</h3>
+        <input class="form-control" id="cropName" placeholder="Enter the crop name" />
+        <h4>Enter your location:</h4>
+        <input class="form-control" id="location" placeholder="Enter your location" />
+        <button onclick="analyzeCrop()">Analyze</button>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" class="container">
+        <h3>Analysis Result:</h3>
+        <p id="resultText"></p>
+    </div>
+
+    <script>
+        function analyzeCrop() {
+            const cropName = document.getElementById('cropName').value.toLowerCase().trim();
+            const location = document.getElementById('location').value.toLowerCase().trim();
+
+            const cropDB = {
+                punjab: ["wheat", "rice", "maize"],
+                haryana: ["wheat", "rice", "sugarcane"],
+                gujarat: ["cotton", "groundnut", "millet"],
+                maharashtra: ["sugarcane", "cotton", "soybean"],
+                rajasthan: ["millet", "barley", "wheat"],
+                tamilnadu: ["rice", "sugarcane", "banana"],
+                kerala: ["rubber", "tea", "coconut"],
+                karnataka: ["coffee", "sugarcane", "ragi"],
+                madhyapradesh: ["soybean", "wheat", "pulses"],
+                uttarpradesh: ["sugarcane", "wheat", "potato"],
+                bihar: ["rice", "maize", "lentils"],
+                westbengal: ["rice", "jute", "tea"],
+                assam: ["tea", "rice", "jute"],
+                odisha: ["rice", "groundnut", "sugarcane"],
+                jharkhand: ["maize", "rice", "millet"],
+                himachalpradesh: ["apple", "barley", "wheat"],
+                uttarakhand: ["rice", "tea", "millet"],
+                chhattisgarh: ["rice", "pulses", "maize"],
+                andhrapradesh: ["rice", "cotton", "groundnut"],
+                telangana: ["cotton", "maize", "rice"]
+            };
+
+            if (!cropName || !location) {
+                alert("Please fill in both fields.");
+                return;
+            }
+
+            const resultText = document.getElementById("resultText");
+            const results = document.getElementById("results");
+            const overlay = document.getElementById("darkOverlay");
+
+            // Display dark overlay
+            overlay.style.display = "flex";
+
+            setTimeout(() => {
+                overlay.style.display = "none";
+
+                if (cropDB[location]) {
+                    if (cropDB[location].includes(cropName)) {
+                        resultText.innerText = `Great choice! ${cropName} is well-suited for ${location}.`;
+                    } else {
+                        resultText.innerText = `Unfortunately, ${cropName} is not well-suited for ${location}. Consider growing ${cropDB[location].join(", ")} instead.`;
+                    }
+                } else {
+                    resultText.innerText = `No data available for ${location}. Please try a different location.`;
+                }
+
+                results.style.display = "block";
+            }, 2000); // Simulating analysis delay
+        }
+    </script>
+</body>
+</html>
